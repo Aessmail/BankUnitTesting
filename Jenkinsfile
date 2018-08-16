@@ -19,7 +19,7 @@ pipeline {
 				bat '"D:\\Jenkins\\Tools\\opencover\\tools\\OpenCover.Console.exe" -register:administrator -target:"C:\\Program Files (x86)\\Microsoft Visual Studio 12.0\\Common7\\IDE\\MSTest.exe" -targetargs:"/testcontainer:\\"%WORKSPACE%\\BankTest\\bin\\Debug\\BankTest.dll\\" /resultsfile:\\"%WORKSPACE%\\BankTestResults.trx\\"" -mergebyhash -skipautoprops -output:"%WORKSPACE%\\Coverage.xml" -filter:"+[Bank*]* -[BankTest]*"'
 		                bat '"D:\\Jenkins\\Tools\\reportgenerator\\ReportGenerator.exe" -reports:"%WORKSPACE%\\Coverage.xml"  -targetdir:"%WORKSPACE%\\CodeCoverageHTML"'
 		                bat '"D:\\Jenkins\\Tools\\cobertura\\OpenCoverToCoberturaConverter.exe" -input:Coverage.xml -output:Cobertura.xml -sources:%WORKSPACE%'
-		                bat 'copy "%WORKSPACE%\\Cobertura.xml" "%WORKSPACE%\\..\\..\\coverage\\Bank"'
+		                bat 'copy "%WORKSPACE%\\Cobertura.xml" "%WORKSPACE%\\..\\..\\coverage\\BankPipeLine"'
             }
         }
         stage('Deploy') {
